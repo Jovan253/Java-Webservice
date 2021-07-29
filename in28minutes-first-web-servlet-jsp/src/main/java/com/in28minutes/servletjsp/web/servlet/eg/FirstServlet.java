@@ -1,7 +1,11 @@
 package com.in28minutes.servletjsp.web.servlet.eg;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,18 +26,22 @@ public class FirstServlet extends HttpServlet {
 	//localhost:8080 => GET
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// B for bold
-		//BR for bold and new line
-		//linking a jsp file with html to avoid messiness
+		List<String> list = Arrays.asList("BonJovi", "GunsNRoses", "RollingStones", "AC/DC");
+		
+		request.setAttribute("bestBandsList", list);
+		
+		Map<String, Integer> map = new HashMap<String,Integer>();
+		map.put("RollingStones", 67);
+		map.put("GunsNRoses", 45);
+		map.put("BonJovi", 35);
+		map.put("AC/DC", 75);
+		
+		request.getSession().setAttribute("millionsSoldMap", map);
+		
+		request.setAttribute("bandName", "Bon Jovi");
+		request.getRequestDispatcher("/WEB-INF/views/first1.jsp").forward(request, response);
 		
 		
-		//displaying messages via jsp and setting an attribute to be used in jsp
-		// set name to be able to be used in parameter
-		String famousGuitarist = request.getParameter("name");
-		request.setAttribute("famousGuitarist", famousGuitarist);
-		request.setAttribute("guitarist", "Slash");
-		request.getRequestDispatcher("/WEB-INF/views/first1.jsp").forward(request,response);
 		
 	} 
 	//POST
