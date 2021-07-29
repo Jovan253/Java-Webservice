@@ -9,7 +9,7 @@
 
 <%
 //script for java code SCRIPLET
-String str="<BR/>Slash";
+String str="<BR/>BRUH";
 out.println("<BR/>Something is printed from out.println<BR/>");
 //int i = 1;
 //out.println("<BR/>value of i is " + i);
@@ -17,7 +17,10 @@ out.println("<BR/>Something is printed from out.println<BR/>");
 %>
 
 <%--EXPRESSIONS--%>
-<%=request.getParameter("parameterName") %>
+<%=request.getParameter("parameterName")%>
+${requestScope.guitarist} <%-- Easier than above --%>
+${param.bestGuitarist}
+<BR/>
 <%=new Date().toString()%>
 <%=str%>
 

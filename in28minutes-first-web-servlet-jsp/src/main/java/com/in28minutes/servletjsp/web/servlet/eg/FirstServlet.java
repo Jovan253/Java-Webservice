@@ -32,6 +32,7 @@ public class FirstServlet extends HttpServlet {
 		// set name to be able to be used in parameter
 		String famousGuitarist = request.getParameter("name");
 		request.setAttribute("famousGuitarist", famousGuitarist);
+		request.setAttribute("guitarist", "Slash");
 		request.getRequestDispatcher("/WEB-INF/views/first1.jsp").forward(request,response);
 		
 	} 
